@@ -9,7 +9,25 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>io.underscope.example.accountkit</string>
+	<key>FacebookDisplayName</key>
+	<string>DemoAccountKit</string>
+	<key>FacebookAppID</key>
+  <string>1527630980704147</string>
+	<key>AccountKitClientToken</key>
+  <string>2c6a9c55d1c49dcae064b824a8dc64ec</string>
+
+	<key>CFBundleURLTypes</key>
+	<array>
+	  <dict>
+	    <key>CFBundleURLSchemes</key>
+	    <array>
+	      <string>fb1527630980704147</string>
+	    </array>
+	  </dict>
+	</array>
+
+
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

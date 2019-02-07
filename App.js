@@ -1,32 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- * @lint-ignore-every XPLATJSCOPYRIGHT1
- */
+import React, { Component } from 'react'
+import { StyleSheet, View, Button } from 'react-native'
+import RNAccountKit from 'react-native-facebook-account-kit'
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+export default class App extends Component {
+  componentDidMount() {
+    RNAccountKit.configure({
+      responseType: 'code',
+      initialPhoneCountryPrefix: '+84',
+      defaultCountry: 'VI',
+    })
+  }
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+  handleLoginButtonPress = async () => {
+    try {
+      const payload = await RNAccountKit.loginWithPhone()
 
-type Props = {};
-export default class App extends Component<Props> {
+      if (!payload) {
+        console.warn('Login cancelled', payload)
+      } else {
+        console.warn('Logged with phone. Payload:', payload)
+      }
+    } catch (err) {
+      console.warn('Error', err.message)
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Button title="Login" onPress={this.handleLoginButtonPress} />
       </View>
-    );
+    )
   }
 }
 
@@ -35,16 +39,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+})

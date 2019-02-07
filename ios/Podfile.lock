@@ -1,29 +1,37 @@
 PODS:
   - AccountKit (4.35.0)
-  - React (0.11.0):
-    - React/Core (= 0.11.0)
-  - React/Core (0.11.0)
+  - React (0.58.4):
+    - React/Core (= 0.58.4)
+  - React/Core (0.58.4):
+    - yoga (= 0.58.4.React)
   - RNAccountKit (1.1.0):
     - AccountKit
     - React
+  - yoga (0.58.4.React)
 
 DEPENDENCIES:
+  - React (from `../node_modules/react-native`)
   - RNAccountKit (from `../node_modules/react-native-facebook-account-kit/ios`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AccountKit
-    - React
 
 EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
   RNAccountKit:
     :path: "../node_modules/react-native-facebook-account-kit/ios"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   AccountKit: 870ccaf5d33facda9408783e28fbe68c5211e069
-  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
+  React: 6b36b9732ee830d06b470dc4ecdd6837718abe63
   RNAccountKit: 0a98f23723b5fa48126f77cfd515eeb5ec2eb310
+  yoga: a767b95565bc4e939c7bf241a872cc29bad2f984
 
-PODFILE CHECKSUM: dc8b7ebcab5cc68454500c7ed05b0a4ee5f70929
+PODFILE CHECKSUM: 753b5d67fa38321b011e143ecf1991b6f40a66b8
 
 COCOAPODS: 1.6.0
